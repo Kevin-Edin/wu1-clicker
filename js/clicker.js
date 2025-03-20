@@ -15,6 +15,7 @@ const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
+const clickSoundEffect = document.querySelector('#pluh');
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -37,22 +38,22 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'Museet är redo att öppna, grattis! ',
+        description: 'PLUH!',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Nu börjar det likna något, fortsätt gräva!',
+        description: 'PLUH!',
         requiredUpgrades: 10,
         acquired: false,
     },
     {
-        description: 'Klickare, med licens att klicka!',
+        description: 'PLUH!',
         requiredClicks: 10,
         acquired: false,
     },
     {
-        description: 'Tac-2 god!',
+        description: 'PLUH!',
         requiredClicks: 10000,
         acquired: false,
     },
@@ -71,6 +72,7 @@ let achievements = [
 clickerButton.addEventListener(
     'click',
     () => {
+        clickSoundEffect.play()
         // vid click öka score med moneyPerClick
         money += moneyPerClick;
         // håll koll på hur många gånger spelaren klickat
@@ -163,24 +165,29 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
     {
-        name: 'Sop',
+        name: 'Drick ett glas mjölk',
         cost: 10,
         amount: 1,
     },
     {
-        name: 'Kvalitetsspade',
+        name: 'Starkare PLUH',
         cost: 50,
         clicks: 2,
     },
     {
-        name: 'Skottkärra',
+        name: 'Dansa på busstationen',
         cost: 100,
         amount: 10,
     },
     {
-        name: 'Grävmaskin',
+        name: 'Släpp en banger disstrack',
         cost: 1000,
         amount: 100,
+    },
+    {
+        name: 'Gör 1 pushup',
+        cost: 100000,
+        clicks: 2250,
     },
 ];
 
@@ -209,21 +216,21 @@ function createCard(upgrade) {
     header.classList.add('title');
     const cost = document.createElement('p');
     if (upgrade.amount) {
-        header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
+        header.textContent = `${upgrade.name}, +${upgrade.amount} PLUH per sekund.`;
     } else {
-        header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
+        header.textContent = `${upgrade.name}, +${upgrade.clicks} PLUH per klick.`;
     }
-    cost.textContent = `Köp för ${upgrade.cost} benbitar.`;
+    cost.textContent = `Köp för ${upgrade.cost} PLUHs.`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' benbitar';
+            cost.textContent = 'Köp för ' + upgrade.cost + ' PLUHs.';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
-            message('Grattis du har köpt en uppgradering!', 'success');
+            message('Grattis du har köpt en PLUH-gradering!', 'success');
         } else {
             message('Du har inte råd.', 'warning');
         }

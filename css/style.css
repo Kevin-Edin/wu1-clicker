@@ -5,6 +5,7 @@
     --color-lighter: hsl(80, 10%, 90%);
     --color-light: hsl(80, 10%, 80%);
     --color-dark: hsl(360, 10%, 10%);
+    --color-brown: rgb(83, 48, 0);
     --color-dark-transparent: hsla(360, 10%, 10%, 0.2);
 
     --step--1: clamp(0.94rem, calc(0.94rem + 0vw), 0.94rem);
@@ -23,8 +24,8 @@
 }
 
 body {
-    background-color: var(--color-light);
-    color: var(--color-dark);
+    background-color: var(--color-brown);
+    color: var(--color-light);
     font-family: sans-serif;
     font-size: var(--step-0);
 }
@@ -141,7 +142,7 @@ audio {
     width: var(--space-4xl-5xl);
     height: var(--space-4xl-5xl);
     font-size: var(--step-2);
-    background: url('../img/brett-meliti-RgkYMfFopIA-unsplash-removebg-preview.png');
+    background: url('../img/guy-sleeping-sleeping.png');
     background-size: cover;
     background-position: center;
     border: 2px solid transparent;
@@ -180,16 +181,16 @@ audio {
  * meddelanden. Javascript används för att lägga till stilen på meddelandet
  */
 .warning {
-    background-color: palevioletred;
+    background-color: darkred;
 }
 
 .success {
-    background-color: mediumspringgreen;
+    background-color: darkgreen;
 }
 
 .achievement {
     color: var(--color-light);
-    background-color: rebeccapurple;
+    background-color: darkviolet;
 }
 
 /* dessa kort används för spelets uppgraderingar 
@@ -223,13 +224,13 @@ audio {
 
 @keyframes flash {
     0% {
-        color: var(--color-dark);
+        color: var(--color-light);
     }
     50% {
         color: var(--color-dark-transparent);
     }
     100% {
-        color: var(--color-dark);
+        color: var(--color-light);
     }
 }
 
