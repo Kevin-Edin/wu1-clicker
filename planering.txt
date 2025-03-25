@@ -1,4 +1,6 @@
 Themet kommer vara: "PLUH! clicker"
 Varje gång man klickar knappen så hör man ett PLUH!
 Färgen kommer vara Brun och vit
-Det kommer finnas memes
+
+--V 13.
+Simpelt typsnitt och tokiga bilder, inga memes

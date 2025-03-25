@@ -16,6 +16,8 @@ const upgradeList = document.querySelector('#upgradelist');
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
 const clickSoundEffect = document.querySelector('#pluh');
+const passiveSoundEffect = document.querySelector('#pluh2')
+const purchaseSound = document.querySelector('#purchase')
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -72,6 +74,8 @@ let achievements = [
 clickerButton.addEventListener(
     'click',
     () => {
+        clickSoundEffect.pause();
+        clickSoundEffect.currentTime = 0;
         clickSoundEffect.play()
         // vid click öka score med moneyPerClick
         money += moneyPerClick;
@@ -99,6 +103,11 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += moneyPerSecond;
+        if (moneyPerSecond > 0) {
+            passiveSoundEffect.pause();
+            passiveSoundEffect.currentTime = 0;
+            passiveSoundEffect.play();
+        } 
         last = timestamp;
     }
 
@@ -227,6 +236,9 @@ function createCard(upgrade) {
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
+            purchaseSound.pause();
+            purchaseSound.currentTime = 0;
+            purchaseSound.play()
             cost.textContent = 'Köp för ' + upgrade.cost + ' PLUHs.';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
