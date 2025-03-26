@@ -146,7 +146,7 @@ audio {
     background-size: cover;
     background-position: center;
     border: 2px solid transparent;
-    color: var(--color-light);
+    color: white;
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
