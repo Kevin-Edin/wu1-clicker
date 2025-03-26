@@ -194,6 +194,11 @@ upgrades = [
         amount: 100,
     },
     {
+        name: 'MASSIV PLUH',
+        cost: 10000,
+        clicks: 75,
+    },
+    {
         name: 'Gör 1 pushup',
         cost: 100000,
         clicks: 2250,
